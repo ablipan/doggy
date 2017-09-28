@@ -1,0 +1,6 @@
+{
+  "globals": {
+    "page": true
+  },
+  "extends": ["bee"]
+}
