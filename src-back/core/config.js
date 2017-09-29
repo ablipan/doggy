@@ -1,10 +1,10 @@
+import $ from 'jquery'
+
 const config = $.extend({
-  el: '#doggy',
+  el: '#app',
   loadSidebar: '_sidebar.md',
   loadNavbar: null,
   homepage: 'README.md'
 }, window.$doggy || {})
-
-window.$doggy = config
 
 export default config

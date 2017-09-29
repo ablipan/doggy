@@ -1,12 +1,12 @@
 {
   "name": "doggy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js src",
-    "dev": "webpack-dev-server --content-base ./ --inline --hot --config webpack.config.dev.js",
+    "dev": "webpack-dev-server --content-base ./ --inline --hot --config webpack.config.dev.js --host 0.0.0.0",
     "build": "npm run lint && webpack"
   },
   "keywords": [],
@@ -27,6 +27,7 @@
     "jquery": "^1.12.4",
     "marked": "^0.3.6",
     "page": "^1.7.1",
+    "prismjs": "^1.8.1",
     "style-loader": "^0.18.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.5.1",

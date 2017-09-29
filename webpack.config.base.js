@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = {
   output: {
     filename: '[name]',
@@ -21,6 +23,12 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
+  ]
   // Why not working?
   // eslint: {
   //   formatter: require('eslint-formatter-pretty')

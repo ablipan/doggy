@@ -3,7 +3,7 @@ import $ from 'jquery'
 const cache = {}
 
 export function fetchMixin(proto) {
-  proto._fetch = function (url) {
+  proto._fetch = function (url, callback) {
     const cached = cache[url]
 
     if (cached) {
@@ -24,7 +24,7 @@ export function fetchMixin(proto) {
 
   proto.$fetch = function () {
     const { path } = this.route
-    const { loadSidebar } = this.config
+    const { loadNavbar, loadSidebar } = this.config
 
     // Current page is html
     this.isHTML = /\.html$/g.test(path)

@@ -1,291 +1,215 @@
 @import "./base/normalize.styl"
 @import "./base/layout.styl"
 
-// copy from https://github.com/QingWei-Li/docsify/blob/master/src/themes/vue.css
-
 $color-primary = #42b983
-$color-bg = #fff
 $color-text = #34495e
-$sidebar-width = 300px
+$color-link = #505d6b
 
-body {
-  background-color: $color-bg;
-}
+strong()
+  font-weight 600
 
-/* sidebar */
-.sidebar
-  background-color: $color-bg;
-  color: #364149;
+paragraph-margin()
+  margin 1.2em 0
 
-  li
-    margin: 6px 0 6px 15px;
+paragraph-style()
+  line-height 25.6px
+  word-spacing 0.8px
 
-  ul li a
-    color: #505d6b;
-    font-size: 14px;
-    font-weight: normal;
-    overflow: hidden;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+list-style()
+  padding-left 24px
 
-    &:hover
-      text-decoration: underline;
+.d-sidebar__nav ul li a
+  color $color-link
 
-  ul li ul
-    padding: 0;
+.d-markdown
+  a
+    color $color-primary
+    font-weight 600
 
-  ul li.active > a
-    border-right: 2px solid;
-    color: $color-primary
-    font-weight: 600;
+  h1
+    font-size: 32px
+    margin: 0 0 16px
+    strong()
 
-.app-sub-sidebar
-  .section-link
-    &::before
-      content: '-';
-      padding-right: 4px;
+  h2
+    font-size: 28px
+    margin: 45px 0 12.8px
+    strong()
 
-/* markdown content found on pages */
-.markdown-section h1,
-.markdown-section h2,
-.markdown-section h3,
-.markdown-section h4,
-.markdown-section strong {
-  color: #2c3e50;
-  font-weight: 600;
-}
+  h3
+    font-size: 24px
+    margin: 40px 0 9.6px
+    strong()
 
-.markdown-section a {
-  color: $color-primary
-  font-weight: 600;
-}
+  h4
+    font-size: 20px
+    strong()
 
-.markdown-section h1 {
-  font-size: 2rem;
-  margin: 0 0 1rem;
-}
+  h5
+    font-size: 16px;
 
-.markdown-section h2 {
-  font-size: 1.75rem;
-  margin: 45px 0 0.8rem;
-}
+  h6
+    color: #777;
+    font-size: 16px
 
-.markdown-section h3 {
-  font-size: 1.5rem;
-  margin: 40px 0 0.6rem;
-}
+  p
+    line-height 25.6px
+    word-spacing 0.8px
 
-.markdown-section h4 {
-  font-size: 1.25rem;
-}
+  strong
+    strong()
 
-.markdown-section h5 {
-  font-size: 1rem;
-}
+  figure
+    paragraph-margin()
 
-.markdown-section h6 {
-  color: #777;
-  font-size: 1rem;
-}
+  p
+    paragraph-margin()
+    paragraph-style()
 
-.markdown-section figure,
-.markdown-section p,
-.markdown-section ul,
-.markdown-section ol {
-  margin: 1.2em 0;
-}
+  ul
+    paragraph-margin()
+    paragraph-style()
+    list-style()
 
-.markdown-section p,
-.markdown-section ul,
-.markdown-section ol {
-  line-height: 1.6rem;
-  word-spacing: 0.05rem;
-}
+  ol
+    paragraph-margin()
+    paragraph-style()
+    list-style()
 
-.markdown-section ul,
-.markdown-section ol {
-  padding-left: 1.5rem;
-}
+  code-basic()
+    -moz-osx-font-smoothing initial
+    -webkit-font-smoothing initial
+    background-color: #f8f8f8;
+    font-family: Roboto Mono, Monaco, courier, monospace;
 
-.markdown-section blockquote {
-  border-left: 4px solid $color-primary
-  color: #858585;
-  margin: 2em 0;
-  padding-left: 20px;
-}
+  pre
+    code-basic()
+    line-height 24px
+    margin 1.2em 0
+    overflow auto
+    padding 0 22.4px
+    position relative
+    word-wrap normal
+    & > code
+      color #525252
+      display block
+      line-height inherit
+      max-width inherit
+      overflow inherit
+      padding 2.2em 5px
+      white-space inherit
+    &:after
+      color #ccc
+      content attr(data-lang)
+      font-size 9.6px
+      font-weight 600
+      height 15px
+      line-height 15px
+      padding 5px 10px 0
+      position absolute
+      right 0
+      text-align right
+      top 0
 
-.markdown-section blockquote p {
-  font-weight: 600;
-  margin-left: 0;
-}
+  code
+    code-basic()
+    border-radius 2px
+    color #e96900
+    font-size 12px
+    margin 0 2px
+    padding 3px 5px
+    white-space pre-wrap
 
-.markdown-section iframe {
-  margin: 1em 0;
-}
+  blockquote
+    border-left: 4px solid $color-primary
+    color: #858585
+    margin: 2em 0
+    padding-left: 20px
 
-.markdown-section em {
-  color: #7f8c8d;
-}
+  /* code highlight begin */
+  .token.comment
+  .token.prolog
+  .token.doctype
+  .token.cdata
+    color #8e908c
 
-.markdown-section code {
-  background-color: #f8f8f8;
-  border-radius: 2px;
-  color: #e96900;
-  font-family: 'Roboto Mono', Monaco, courier, monospace;
-  font-size: 0.8rem;
-  margin: 0 2px;
-  padding: 3px 5px;
-  white-space: pre-wrap;
-}
+  .token.namespace
+    opacity 0.7
 
-.markdown-section pre {
-  -moz-osx-font-smoothing: initial;
-  -webkit-font-smoothing: initial;
-  background-color: #f8f8f8;
-  font-family: 'Roboto Mono', Monaco, courier, monospace;
-  line-height: 1.5rem;
-  margin: 1.2em 0;
-  overflow: auto;
-  padding: 0 1.4rem;
-  position: relative;
-  word-wrap: normal;
-}
+  .token.boolean,
+  .token.number
+    color #c76b29
 
-/* code highlight */
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #8e908c;
-}
+  .token.punctuation
+    color #525252
 
-.token.namespace {
-  opacity: 0.7;
-}
+  .token.property
+    color #c08b30
 
-.token.boolean,
-.token.number {
-  color: #c76b29;
-}
+  .token.tag
+    color #2973b7
 
-.token.punctuation {
-  color: #525252;
-}
+  .token.string
+    color $color-primary
 
-.token.property {
-  color: #c08b30;
-}
+  .token.selector
+    color #6679cc
 
-.token.tag {
-  color: #2973b7;
-}
+  .token.attr-name
+    color #2973b7
 
-.token.string {
-  color: $color-primary
-}
+  .token.entity
+  .token.url
+  .language-css .token.string
+  .style .token.string
+    color #22a2c9
 
-.token.selector {
-  color: #6679cc;
-}
+  .token.attr-value,
+  .token.control,
+  .token.directive,
+  .token.unit
+    color $color-primary
 
-.token.attr-name {
-  color: #2973b7;
-}
+  .token.keyword
+    color #e96900
 
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: #22a2c9;
-}
+  .token.statement,
+  .token.regex,
+  .token.atrule
+    color #22a2c9
 
-.token.attr-value,
-.token.control,
-.token.directive,
-.token.unit {
-  color: $color-primary
-}
+  .token.placeholder,
+  .token.variable
+    color #3d8fd1
 
-.token.keyword {
-  color: #e96900;
-}
+  .token.deleted
+    text-decoration line-through
 
-.token.statement,
-.token.regex,
-.token.atrule {
-  color: #22a2c9;
-}
+  .token.inserted
+    border-bottom 1px dotted #202746
+    text-decoration none
 
-.token.placeholder,
-.token.variable {
-  color: #3d8fd1;
-}
+  .token.italic
+    font-style italic
 
-.token.deleted {
-  text-decoration: line-through;
-}
+  .token.important,
+  .token.bold
+    font-weight bold
 
-.token.inserted {
-  border-bottom: 1px dotted #202746;
-  text-decoration: none;
-}
+  .token.important
+    color #c94922
 
-.token.italic {
-  font-style: italic;
-}
+  .token.entity
+    cursor help
 
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
+/* code highlight end */
 
-.token.important {
-  color: #c94922;
-}
+.d-markdown__anchor
+  display inline-block
+  text-decoration none
 
-.token.entity {
-  cursor: help;
-}
+  &:hover
+    text-decoration underline
 
-.markdown-section pre > code {
-  -moz-osx-font-smoothing: initial;
-  -webkit-font-smoothing: initial;
-  background-color: #f8f8f8;
-  border-radius: 2px;
-  color: #525252;
-  display: block;
-  font-family: 'Roboto Mono', Monaco, courier, monospace;
-  font-size: 0.8rem;
-  line-height: inherit;
-  margin: 0 2px;
-  max-width: inherit;
-  overflow: inherit;
-  padding: 2.2em 5px;
-  white-space: inherit;
-}
-
-.markdown-section code::after,
-.markdown-section code::before {
-  letter-spacing: 0.05rem;
-}
-
-code .token {
-  -moz-osx-font-smoothing: initial;
-  -webkit-font-smoothing: initial;
-  min-height: 1.5rem;
-}
-
-pre::after {
-  color: #ccc;
-  content: attr(data-lang);
-  font-size: 0.6rem;
-  font-weight: 600;
-  height: 15px;
-  line-height: 15px;
-  padding: 5px 10px 0;
-  position: absolute;
-  right: 0;
-  text-align: right;
-  top: 0;
-}
+  span
+    color $color-text

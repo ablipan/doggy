@@ -1,26 +1,20 @@
 # Doggy
 
-A documentation generator compatible with old IE 🙄.
+Make your IE8 compatible lib's documentation working on IE8 🙄.
 
-## Why
-Your lib is working on IE8 but your documentation dead.
-
-## More
-
-Inspired by [docsify](https://github.com/QingWei-Li/docsify)
+Totally inspired by [docsify](https://github.com/QingWei-Li/docsify), some codes are copied from it right now 🤒. If you do not need IE8 compatible, just use the powerful [docsify](https://github.com/QingWei-Li/docsify) instead.
 
 ## Tools
 
 * BEM
-* Webpack@1
+* Webpack@v1
 * jQuery
 * Flow
 * ESLint
 * Babel
 * Stylus
 * marked
-* Router
-  * https://github.com/visionmedia/page.js
+* page.js
   
 ## Polyfill
 
@@ -31,5 +25,6 @@ es5-sham则是对ES3做Object的一些ES5的属性方法扩展，如‘Object.cr
 
 ## TODO
 
+* [ ] Multi level side menu
 * [ ] nanocss
 * [ ] Flow

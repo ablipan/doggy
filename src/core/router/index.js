@@ -1,5 +1,7 @@
 import page from 'page'
 
+const { isAbsolutePath, getPath } = require('./util')
+
 let lastRoutePath = ''
 
 function getFileName(path) {
@@ -11,7 +13,13 @@ function getFileName(path) {
 export function routerMixin(proto) {
   proto.route = {}
 
+  proto.getBasePath = function () {
+    return this.config.basePath
+  }
+
   proto.getFilePath = function (path) {
+    const base = this.getBasePath()
+    path = isAbsolutePath(path) ? path : getPath(base, path)
     return getFileName(path)
   }
 }

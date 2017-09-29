@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import Compiler from './compiler'
+import { Compiler } from './Compiler'
 import { main } from './tpl'
 
 export function renderMixin(proto) {
@@ -8,7 +8,9 @@ export function renderMixin(proto) {
   }
 
   proto._renderSidebar = function (text) {
-    this._renderTo('.d-sidebar__nav', this.compiler.sidebar(text))
+    // const { maxLevel, subMaxLevel, loadSidebar } = this.config
+
+    this._renderTo('.sidebar-nav', this.compiler.sidebar(text))
   }
 
   proto._renderMain = function (text) {
@@ -16,13 +18,13 @@ export function renderMixin(proto) {
       text = 'not found'
     }
     const html = this.isHTML ? text : this.compiler.compile(text)
-    this._renderTo('.d-markdown', html)
+    this._renderTo('.markdown-section', html)
   }
 }
 
 export function initRender(vm) {
   const config = vm.config
-  const id = config.el || '#doggy'
+  const id = config.el || '#app'
   // Init markdown compiler
   vm.compiler = new Compiler(config, vm.router)
 
