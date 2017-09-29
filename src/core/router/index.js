@@ -40,7 +40,6 @@ export function initRouter(vm) {
     vm.route = {
       path: route.params[0]
     }
-    console.log(route)
     updateRender(vm)
   })
   page.base(config.basePath || '/')

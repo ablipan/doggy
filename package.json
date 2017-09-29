@@ -1,13 +1,15 @@
 {
   "name": "doggy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
-  "main": "webpack.config.js",
+  "main": "dist/doggy.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js src",
     "dev": "webpack-dev-server --content-base ./ --inline --hot --config webpack.config.dev.js --host 0.0.0.0",
-    "build": "npm run lint && webpack"
+    "build:normal": "COMPRESS=0 webpack",
+    "build:compress": "COMPRESS=1 webpack",
+    "build": "rm -rf dist/ && npm run lint && npm run build:normal & npm run build:compress"
   },
   "keywords": [],
   "author": "",
