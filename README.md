@@ -20,10 +20,6 @@ Totally inspired by [docsify](https://github.com/QingWei-Li/docsify), some codes
   <![endif]-->
   <!--[if lt IE 8]>
   <script src="https://cdn.bootcss.com/json3/3.3.2/json3.min.js"></script>
-  <script src="https://cdn.bootcss.com/html5-history-api/4.2.8/history.ielte7.min.js"></script>
-  <![endif]-->
-  <!--[if IE 8]>
-  <script src="https://cdn.bootcss.com/html5-history-api/4.2.8/history.min.js"></script>
   <![endif]-->
   <!--[if lt IE 9]>
   <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -46,6 +42,7 @@ Totally inspired by [docsify](https://github.com/QingWei-Li/docsify), some codes
 
 ## Tools
 
+* [docsify](https://github.com/QingWei-Li/docsify)
 * BEM
 * Webpack@v1
 * jQuery
@@ -58,7 +55,6 @@ Totally inspired by [docsify](https://github.com/QingWei-Li/docsify), some codes
   
 ## Polyfill
 
-* [HTML5-History-API](https://github.com/devote/HTML5-History-API)  
 * [es5-shim](https://github.com/es-shims/es5-shim) extends ES3的一些方法做扩展，比如String.trim,Array.forEach,Array.map等。
 es5-sham则是对ES3做Object的一些ES5的属性方法扩展，如‘Object.create,Object.getPrototypeOf,Object.freeze’等等。
 * [json3](https://github.com/bestiejs/json3) 在 IE7及一下的浏览器中实现 JSON 的 stringify 方法和 parse 方法
@@ -67,6 +63,7 @@ es5-sham则是对ES3做Object的一些ES5的属性方法扩展，如‘Object.cr
 
 * [ ] Table css
 * [ ] Router not working on ie8... Old browsers
+  * [ ] Use params instead of hash on old browsers? like: xxx?page=demo.md&id=how-to-use-it
 
 * [ ] Demo block half screen
 * [ ] Multi level side menu
