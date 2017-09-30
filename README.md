@@ -39,6 +39,12 @@ Totally inspired by [docsify](https://github.com/QingWei-Li/docsify), some codes
 
 ```
 
+## Dev
+
+1. `npm i`
+2. `npm run dev`
+3. open `http://127.0.0.1:8080/example` in browser
+
 
 ## Tools
 
