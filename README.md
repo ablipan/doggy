@@ -50,7 +50,7 @@ Totally inspired by [docsify](https://github.com/QingWei-Li/docsify), some codes
 ```
 
 ### Serve the folder
-You can use `[serve](https://github.com/zeit/serve)`
+You can use [serve](https://github.com/zeit/serve)
 
 ## Dev
 
