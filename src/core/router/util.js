@@ -1,5 +1,5 @@
 /**
- * copy from docsify
+ * copy from docsify https://github.com/QingWei-Li/docsify
  */
 
 import { cached } from '../util/core'
