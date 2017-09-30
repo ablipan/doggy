@@ -4,7 +4,7 @@
 
 Make your IE8 compatible lib's documentation working on IE8 🙄.
 
-Totally inspired by [docsify](https://github.com/QingWei-Li/docsify), some codes are copied from it right now 🤒. If you do not need IE8 compatible, just use the powerful [docsify](https://github.com/QingWei-Li/docsify) instead.
+Totally inspired by [docsify](https://github.com/QingWei-Li/docsify), some codes are copied from it right now 🤒. If you do not need IE8 compatible, just use the powerful [docsify](https://github.com/QingWei-Li/docsify).
 
 # Quick start
 
@@ -78,14 +78,14 @@ You can use `[serve](https://github.com/zeit/serve)`
 es5-sham则是对ES3做Object的一些ES5的属性方法扩展，如‘Object.create,Object.getPrototypeOf,Object.freeze’等等。
 * [json3](https://github.com/bestiejs/json3) 在 IE7及一下的浏览器中实现 JSON 的 stringify 方法和 parse 方法
 
-## TODO
-
+## Issues
 * [ ] Table css
+* [ ] Multi level side menu
 * [ ] Router not working on ie8... Old browsers
   * [ ] Use params instead of hash on old browsers? like: xxx?page=demo.md&id=how-to-use-it
 
+## TODO
 * [ ] Demo block half screen
-* [ ] Multi level side menu
 * [ ] nanocss
 * [ ] Flow
 * [ ] Speed up for modern browser
