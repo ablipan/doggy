@@ -32,3 +32,34 @@ new Vue({
   }
 }) 
 ```
+
+Demo
+
+:::demo This is description `cool`
+
+```html
+<el-badge is-dot class="item">Badge</el-badge>
+<el-badge is-dot class="item">
+  <el-button class="share-button" icon="share" type="primary"></el-button>
+</el-badge>
+
+<style>
+.item {
+  margin-top: 10px;
+  margin-right: 40px;
+}
+</style>
+
+<script>
+  console.log('This is awesome')
+</script>
+```
+:::
+
+### Attributes
+| Attribute          | Description            | Type            | Accepted Values                 | Default   |
+|-------------  |---------------- |---------------- |---------------------- |-------- |
+| value          | display value      | string, number          |          —             |    —     |
+| max          |  maximum value, shows '{max}+' when exceeded. Only works if `value` is a `Number`   | number  |         —              |     —    |
+| is-dot       | if a little dot is displayed   | boolean  |  —  |  false |
+| hidden | hidden badge | boolean | — | false |

@@ -9,14 +9,11 @@
   <![endif]-->
   <!--[if lt IE 8]>
   <script src="https://cdn.bootcss.com/json3/3.3.2/json3.min.js"></script>
-  <script src="https://cdn.bootcss.com/html5-history-api/4.2.8/history.ielte7.min.js"></script>
-  <![endif]-->
-  <!--[if IE 8]>
-  <script src="https://cdn.bootcss.com/html5-history-api/4.2.8/history.min.js"></script>
   <![endif]-->
   <!--[if lt IE 9]>
-  <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+  <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
+  <link href="https://cdn.bootcss.com/element-ui/1.4.6/theme-default/index.css" rel="stylesheet">
 </head>
 <body>
 <div id="doggy"></div>
@@ -25,6 +22,13 @@
     basePath: '/example'
   }
 </script>
-<script src="/dist/doggy.js"></script>
+<script src="/dev/doggy.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>
+<script src="https://cdn.bootcss.com/element-ui/1.4.6/index.js"></script>
+<script>
+  new Vue({
+    el: '#doggy'
+  })
+</script>
 </body>
 </html>

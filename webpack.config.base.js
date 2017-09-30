@@ -1,18 +1,17 @@
 const webpack = require('webpack')
 
 module.exports = {
-  output: {
-    filename: '[name]',
-    path: __dirname + '/dist',
-    publicPath: '/dist/'
-  },
   devtool: '#source-map',
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'es3ify-loader!babel-loader'
+      },
+      {
+        test: /\.json/,
+        loader: 'json-loader'
       }
     ],
     preLoaders: [

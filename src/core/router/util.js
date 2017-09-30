@@ -1,3 +1,7 @@
+/**
+ * copy from docsify
+ */
+
 import { cached } from '../util/core'
 
 const decode = decodeURIComponent

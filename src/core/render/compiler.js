@@ -1,43 +1,60 @@
-const marked = require('marked')
+// const marked = require('marked')
+const MarkdownIt = require('markdown-it')
 const Prism = require('prismjs')
+const $ = require('jquery')
+
 const { cached } = require('../util/core')
+
+// function convert(str) {
+//   str = str.replace(/(&#x)(\w{4});/gi, function ($0) {
+//     return String.fromCharCode(parseInt(encodeURIComponent($0).replace(/(%26%23x)(\w{4})(%3B)/g, '$2'), 16))
+//   })
+//   return str
+// }
 
 export default class Compiler {
   constructor(config, router) {
     this.config = config
     this.router = router
 
-    // const renderer = new marked.Renderer()
-    const renderer = this._initRenderer()
-
-    marked.setOptions({
-      renderer: renderer
-    })
+    const md = this._initRenderer()
 
     this.compile = cached(text => {
       if (!text) return text
-      return marked(text)
+      return md.render(text)
     })
   }
 
   _initRenderer() {
-    const renderer = new marked.Renderer()
+    const md = new MarkdownIt({
+      highlight(str, lang) {
+        const hl = Prism.highlight(str, Prism.languages[lang] || Prism.languages.markup)
+        return `<pre v-pre data-lang="${lang}"><code class="lang-${lang}">${hl}</code></pre>`
+      }
+    })
 
-    renderer.heading = function (text, level) {
-      return `<h${level}><a class="d-markdown__anchor" href="#"><span>${text}</span></a></h${level}>`
-    }
+    md.use(require('markdown-it-container'), 'demo', {
+      validate(params) {
+        return params.trim().match(/^demo\s*(.*)$/)
+      },
+      render: function (tokens, idx) {
+        const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
+        if (tokens[idx].nesting === 1) {
+          const description = (m && m.length > 1) ? m[1] : ''
+          const descriptionHTML = description
+            ? md.render(description)
+            : ''
+          const content = tokens[idx + 1].content
+          return `<div class="d-demo">
+                    <div class="d-demo__source">${content}</div>
+                    <div class="d-demo__description">${descriptionHTML}<a d-code-toggle class="d-demo__toggle">Source</a></div>
+                    <div class="d-demo__code">`
+        }
+        return '</div></div>'
+      }
+    })
 
-    renderer.paragraph = function (text) {
-      return `<p>${text}</p>`
-    }
-
-    // highlight code
-    renderer.code = function (code, lang = '') {
-      const hl = Prism.highlight(code, Prism.languages[lang] || Prism.languages.markup)
-      return `<pre v-pre data-lang="${lang}"><code class="lang-${lang}">${hl}</code></pre>`
-    }
-
-    return renderer
+    return md
   }
 
   /**

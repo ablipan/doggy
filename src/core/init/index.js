@@ -1,6 +1,7 @@
 import config from '../config'
 import { initRouter } from '../router'
 import { initRender } from '../render'
+import { initEvent } from '../event'
 
 export function initMixin(proto) {
   proto._init = function () {
@@ -11,5 +12,7 @@ export function initMixin(proto) {
     initRender(vm)
     // init markdown content by router
     initRouter(vm)
+    // init event
+    initEvent(vm)
   }
 }

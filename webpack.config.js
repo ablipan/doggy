@@ -10,6 +10,11 @@ module.exports = merge({
     [minify ? 'doggy.min.js' : 'doggy.js']: './src/core/index.js',
     'vue.css': './src/themes/vue.styl'
   },
+  output: {
+    filename: '[name]',
+    path: __dirname + '/dist',
+    publicPath: '/dist/'
+  },
   module: {
     loaders: [
       {

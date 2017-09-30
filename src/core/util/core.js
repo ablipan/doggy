@@ -1,4 +1,8 @@
 /**
+ * copy from docsify
+ */
+
+/**
  * Create a cached version of a pure function.
  */
 export function cached(fn) {
