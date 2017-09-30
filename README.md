@@ -8,6 +8,8 @@ Totally inspired by [docsify](https://github.com/QingWei-Li/docsify), some codes
 
 # Quick start
 
+### New index.html
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +40,17 @@ Totally inspired by [docsify](https://github.com/QingWei-Li/docsify), some codes
 </html>
 
 ```
+
+### New `_sidebar.md` in the folder with `index.html`
+
+```markdown
+- Getting started
+  - [Quick start](demo.md)
+  - [BEM](BEM.md)
+```
+
+### Serve the folder
+You can use `[serve](https://github.com/zeit/serve)`
 
 ## Dev
 
