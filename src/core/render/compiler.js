@@ -3,7 +3,10 @@ const MarkdownIt = require('markdown-it')
 const Prism = require('prismjs')
 const $ = require('jquery')
 
+const { strip, fetch } = require('../util/strip-tags')
 const { cached } = require('../util/core')
+
+let demoId = 1
 
 // function convert(str) {
 //   str = str.replace(/(&#x)(\w{4});/gi, function ($0) {
@@ -30,6 +33,9 @@ export default class Compiler {
       highlight(str, lang) {
         const hl = Prism.highlight(str, Prism.languages[lang] || Prism.languages.markup)
         return `<pre v-pre data-lang="${lang}"><code class="lang-${lang}">${hl}</code></pre>`
+      },
+      table(str) {
+        return `<table></table>`
       }
     })
 
@@ -45,9 +51,17 @@ export default class Compiler {
             ? md.render(description)
             : ''
           const content = tokens[idx + 1].content
-          return `<div class="d-demo">
-                    <div class="d-demo__source">${content}</div>
-                    <div class="d-demo__description">${descriptionHTML}<a d-code-toggle class="d-demo__toggle">Source</a></div>
+          const html = strip(content, ['script', 'style'])
+          let style = fetch(content, 'style')
+          let script = fetch(content, 'script')
+          style = style ? `<style>${style}</style>` : ''
+          script = script ? `<script>${script}</script>` : ''
+
+          return `<div class="d-demo d-demo__${demoId++}">
+                    <div class="d-demo__source__style">${style}</div>
+                    <div class="d-demo__source__html">${html}</div>
+                    <div class="d-demo__source__script">${script}</div>
+                    <div class="d-demo__description">${descriptionHTML}<a d-code-toggle class="d-demo__toggle">&lt; &gt;</a></div>
                     <div class="d-demo__code">`
         }
         return '</div></div>'

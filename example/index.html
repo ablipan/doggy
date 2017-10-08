@@ -17,18 +17,24 @@
 </head>
 <body>
 <div id="doggy"></div>
-<script>
-  window.$doggy = {
-    basePath: '/example'
-  }
-</script>
-<script src="/dev/doggy.js"></script>
 <script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>
 <script src="https://cdn.bootcss.com/element-ui/1.4.6/index.js"></script>
 <script>
-  new Vue({
-    el: '#doggy'
-  })
+  window.$doggy = {
+    basePath: '/example',
+    plugins: [
+      function(hook, vm) {
+        hook.ready(function() {
+          $('.d-demo__source__html').each(function(index, element) {
+            new Vue({
+              el: element
+            })
+          })
+        })
+      }
+    ]
+  }
 </script>
+<script src="/dev/doggy.js"></script>
 </body>
 </html>

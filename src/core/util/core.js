@@ -12,3 +12,15 @@ export function cached(fn) {
     return hit || (cache[str] = fn(str))
   }
 }
+
+/**
+ * Perform no operation.
+ */
+export function noop() {}
+
+/**
+ * Check if value is function
+ */
+export function isFn(obj) {
+  return typeof obj === 'function'
+}

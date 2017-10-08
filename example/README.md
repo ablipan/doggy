@@ -4,14 +4,14 @@
 
 Here is normal text, inline code: `var a = 1`, **bold text**，~~deprecate text~~.
 
-> Quotes  
+> Quotes
 > 夫唯不争，故无尤
 
 List
 
 * list 1
 * list 2
-* list 3 
+* list 3
 
 List 2
 
@@ -30,7 +30,7 @@ new Vue({
   render(h) {
     h(App)
   }
-}) 
+})
 ```
 
 Demo
@@ -59,7 +59,7 @@ Demo
 ### Attributes
 | Attribute          | Description            | Type            | Accepted Values                 | Default   |
 |-------------  |---------------- |---------------- |---------------------- |-------- |
-| value          | display value      | string, number          |          —             |    —     |
+| value{{test}}          | display value      | string, number          |          —             |    —     |
 | max          |  maximum value, shows '{max}+' when exceeded. Only works if `value` is a `Number`   | number  |         —              |     —    |
 | is-dot       | if a little dot is displayed   | boolean  |  —  |  false |
 | hidden | hidden badge | boolean | — | false |

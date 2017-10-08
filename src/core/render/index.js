@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import { callHook } from '../init/lifecycle'
 import Compiler from './compiler'
 import { main } from './tpl'
 
@@ -15,8 +16,17 @@ export function renderMixin(proto) {
     if (!text) {
       text = 'not found'
     }
-    const html = this.isHTML ? text : this.compiler.compile(text)
-    this._renderTo('.d-markdown', html)
+    // const html = this.isHTML ? text : this.compiler.compile(text)
+    // this._renderTo('.d-markdown', html)
+
+    callHook(this, 'beforeEach', text, result => {
+      const html = this.isHTML ? result : this.compiler.compile(result)
+      callHook(this, 'afterEach', html, text => {
+        this._renderTo('.d-markdown', text)
+        callHook(this, 'doneEach')
+        callHook(this, 'ready')
+      })
+    })
   }
 }
 
